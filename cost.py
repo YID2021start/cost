@@ -13,16 +13,15 @@ def read_file():
                 data.append([name, buy, sell, d, c])                   
     return data            
 
-
 #計算買賣成本
 def count(data):
     import math
     name = input('輸入買入股票:') 
     buy = input('輸入買入金額:')
+    sell = input('輸入賣出金額:')
     buy =int(buy)
     d = math.floor(buy) * 0.001425 * 0.6
     d = math.floor(d) 
-    sell = input('輸入賣出金額:')
     sell =int(sell)
     c = math.floor(sell) * 0.001425 * 0.6
     e = math.floor(sell) * 0.003 
@@ -38,14 +37,11 @@ def write_file(data):
         for p in data:
            f.write(p[0] + ',' + str(p[1]) + ',' + str(p[2]) + ',' + str(p[3]) + ',' + str(p[4]) + '\n')
 
-
-
-
 def main():
     data = read_file()
     data = count(data)
     write_file(data)
 
+if __name__ == '__main__':
+    	main()    
 
-
-print(data)
